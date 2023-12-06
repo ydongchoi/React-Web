@@ -11,7 +11,6 @@ export { default as MatxLoading } from './MatxLoading';
 export { default as MatxLogo } from './MatxLogo';
 export { default as MatxMenu } from './MatxMenu';
 export { default as MatxProgressBar } from './MatxProgressBar';
-export { default as MatxSearchBox } from './MatxSearchBox';
 export { default as MatxSidenav } from './MatxSidenav/MatxSidenav';
 export { default as MatxSuspense } from './MatxSuspense';
 export { EchartTheme } from './MatxTheme/EchartTheme';

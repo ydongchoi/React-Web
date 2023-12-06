@@ -5,9 +5,7 @@ import { Outlet } from 'react-router-dom';
 import { MatxSuspense } from 'app/components';
 import useSettings from 'app/hooks/useSettings';
 import { sidenavCompactWidth, sideNavWidth } from 'app/utils/constant';
-import Footer from '../../Footer';
 import SidenavTheme from '../../MatxTheme/SidenavTheme/SidenavTheme';
-import SecondarySidebar from '../../SecondarySidebar/SecondarySidebar';
 import Layout1Sidenav from './Layout1Sidenav';
 import Layout1Topbar from './Layout1Topbar';
 
@@ -92,7 +90,7 @@ const Layout1 = () => {
         </SidenavTheme>
       )}
 
-      <LayoutContainer width={sidenavWidth} open={secondarySidebar.open}>
+      <LayoutContainer width={sidenavWidth}>
         {layout1Settings.topbar.show && layout1Settings.topbar.fixed && (
           <ThemeProvider theme={topbarTheme}>
             <Layout1Topbar fixed={true} className="elevation-z8" />
@@ -111,8 +109,6 @@ const Layout1 = () => {
                 <Outlet />
               </MatxSuspense>
             </Box>
-
-            {settings.footer.show && !settings.footer.fixed && <Footer />}
           </StyledScrollBar>
         )}
 
@@ -129,15 +125,9 @@ const Layout1 = () => {
                 <Outlet />
               </MatxSuspense>
             </Box>
-
-            {settings.footer.show && !settings.footer.fixed && <Footer />}
           </ContentBox>
         )}
-
-        {settings.footer.show && settings.footer.fixed && <Footer />}
       </LayoutContainer>
-
-      {settings.secondarySidebar.show && <SecondarySidebar />}
     </Layout1Root>
   );
 };

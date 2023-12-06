@@ -12,16 +12,13 @@ import {
   useTheme
 } from '@mui/material';
 
-import { MatxMenu, MatxSearchBox } from 'app/components';
+import { MatxMenu } from 'app/components';
 import { themeShadows } from 'app/components/MatxTheme/themeColors';
-import { NotificationProvider } from 'app/contexts/NotificationContext';
 import useAuth from 'app/hooks/useAuth';
 import useSettings from 'app/hooks/useSettings';
 import { topBarHeight } from 'app/utils/constant';
 
 import { Span } from '../../Typography';
-import NotificationBar from '../../NotificationBar/NotificationBar';
-import ShoppingCart from '../../ShoppingCart';
 
 const StyledIconButton = styled(IconButton)(({ theme }) => ({
   color: theme.palette.text.primary
@@ -76,11 +73,6 @@ const StyledItem = styled(MenuItem)(({ theme }) => ({
   '& span': { marginRight: '10px', color: theme.palette.text.primary }
 }));
 
-const IconBox = styled('div')(({ theme }) => ({
-  display: 'inherit',
-  [theme.breakpoints.down('md')]: { display: 'none !important' }
-}));
-
 const Layout1Topbar = () => {
   const theme = useTheme();
   const { settings, updateSettings } = useSettings();
@@ -109,30 +101,9 @@ const Layout1Topbar = () => {
           <StyledIconButton onClick={handleSidebarToggle}>
             <Icon>menu</Icon>
           </StyledIconButton>
-
-          <IconBox>
-            <StyledIconButton>
-              <Icon>mail_outline</Icon>
-            </StyledIconButton>
-
-            <StyledIconButton>
-              <Icon>web_asset</Icon>
-            </StyledIconButton>
-
-            <StyledIconButton>
-              <Icon>star_outline</Icon>
-            </StyledIconButton>
-          </IconBox>
         </Box>
 
         <Box display="flex" alignItems="center">
-          <MatxSearchBox />
-
-          <NotificationProvider>
-            <NotificationBar />
-          </NotificationProvider>
-
-          <ShoppingCart />
 
           <MatxMenu
             menuButton={
