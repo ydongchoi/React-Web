@@ -1,3 +1,4 @@
+import * as React from 'react';
 import {
   Avatar,
   Box,
@@ -18,6 +19,7 @@ import {
   AddShoppingCart
 } from '@mui/icons-material'
 import { Paragraph } from 'app/components/Typography';
+import AlertDialog from 'app/components/dialog/alertDialog';
 
 const CardHeader = styled(Box)(() => ({
   display: 'flex',
@@ -63,6 +65,13 @@ const TopSellingTable = () => {
   const bgError = palette.error.main;
   const bgPrimary = palette.primary.main;
   const bgSecondary = palette.secondary.main;
+  const [openShoppingAlert, setOpenShoppingAlert] = React.useState(false);
+
+  const handleChange = () => {
+    setOpenShoppingAlert((prevState) => {
+      return { openShoppingAlert: !prevState.openShoppingAlert };
+    });
+  }
 
   return (
     <Card elevation={3} sx={{ pt: '20px', mb: 3 }}>
@@ -117,9 +126,10 @@ const TopSellingTable = () => {
 
                 <TableCell sx={{ px: 0 }} colSpan={1}>
                   <IconButton>
-                    <AddShoppingCart color="primary" />
+                    <AddShoppingCart color="primary" onClick={handleChange}/>
                   </IconButton>
                 </TableCell>
+                <AlertDialog alertOpen={openShoppingAlert} question='상품을 구매하시겠어요?' content={product.content} />
               </TableRow>
             ))}
           </TableBody>
@@ -135,6 +145,7 @@ const productList = [
     name: 'iPhone-13',
     price: 1200,
     available: 15,
+    content: 'iphone-13은 최고의 제품입니다.'
   }
 ];
 
