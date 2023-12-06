@@ -14,6 +14,9 @@ import {
   TableRow,
   useTheme,
 } from '@mui/material';
+import {
+  AddShoppingCart
+} from '@mui/icons-material'
 import { Paragraph } from 'app/components/Typography';
 
 const CardHeader = styled(Box)(() => ({
@@ -114,7 +117,7 @@ const TopSellingTable = () => {
 
                 <TableCell sx={{ px: 0 }} colSpan={1}>
                   <IconButton>
-                    <Icon color="primary">edit</Icon>
+                    <AddShoppingCart color="primary" />
                   </IconButton>
                 </TableCell>
               </TableRow>
