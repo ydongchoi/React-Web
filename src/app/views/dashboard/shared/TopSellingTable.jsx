@@ -65,10 +65,6 @@ const TopSellingTable = () => {
     <Card elevation={3} sx={{ pt: '20px', mb: 3 }}>
       <CardHeader>
         <Title>top selling products</Title>
-        <Select size="small" defaultValue="this_month">
-          <MenuItem value="this_month">This Month</MenuItem>
-          <MenuItem value="last_month">Last Month</MenuItem>
-        </Select>
       </CardHeader>
 
       <Box overflow="auto">
@@ -93,7 +89,7 @@ const TopSellingTable = () => {
           <TableBody>
             {productList.map((product, index) => (
               <TableRow key={index} hover>
-                <TableCell colSpan={4} align="left" sx={{ px: 0, textTransform: 'capitalize' }}>
+                <TableCell colSpan={4} align="left" sx={{ px: 0 }}>
                   <Box display="flex" alignItems="center">
                     <Avatar src={product.imgUrl} />
                     <Paragraph sx={{ m: 0, ml: 4 }}>{product.name}</Paragraph>
@@ -132,35 +128,11 @@ const TopSellingTable = () => {
 
 const productList = [
   {
-    imgUrl: '/assets/images/products/headphone-2.jpg',
-    name: 'earphone',
-    price: 100,
+    imgUrl: '/assets/images/products/iphone-13.jpg',
+    name: 'iPhone-13',
+    price: 1200,
     available: 15,
-  },
-  {
-    imgUrl: '/assets/images/products/headphone-3.jpg',
-    name: 'earphone',
-    price: 1500,
-    available: 30,
-  },
-  {
-    imgUrl: '/assets/images/products/iphone-2.jpg',
-    name: 'iPhone x',
-    price: 1900,
-    available: 35,
-  },
-  {
-    imgUrl: '/assets/images/products/iphone-1.jpg',
-    name: 'iPhone x',
-    price: 100,
-    available: 0,
-  },
-  {
-    imgUrl: '/assets/images/products/headphone-3.jpg',
-    name: 'Head phone',
-    price: 1190,
-    available: 5,
-  },
+  }
 ];
 
 export default TopSellingTable;
