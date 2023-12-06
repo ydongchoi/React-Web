@@ -8,10 +8,13 @@ import DialogTitle from '@mui/material/DialogTitle';
 
 export default function AlertDialog(props) {
   const [open, setOpen] = React.useState(props.alertOpen);
-
   const handleClose = () => {
     setOpen(false);
   };
+
+  React.useEffect(() => {
+    setOpen(props.alertOpen);
+  }, [props]);
 
   return (
     <React.Fragment>
