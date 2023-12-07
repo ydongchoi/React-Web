@@ -103,7 +103,7 @@ const Layout1Topbar = () => {
           </StyledIconButton>
         </Box>
 
-        <Box display="flex" alignItems="center">
+        {/* <Box display="flex" alignItems="center">
 
           <MatxMenu
             menuButton={
@@ -141,7 +141,7 @@ const Layout1Topbar = () => {
               <Span> Logout </Span>
             </StyledItem>
           </MatxMenu>
-        </Box>
+        </Box> */}
       </TopbarContainer>
     </TopbarRoot>
   );
