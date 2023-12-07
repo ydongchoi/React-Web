@@ -17,9 +17,7 @@ const Analytics = Loadable(lazy(() => import('app/views/dashboard/Analytics')));
 const routes = [
   {
     element: (
-      <AuthGuard>
         <MatxLayout />
-      </AuthGuard>
     ),
     children: [
       // dashboard route
