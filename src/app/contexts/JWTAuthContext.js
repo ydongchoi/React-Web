@@ -71,8 +71,9 @@ export const AuthProvider = ({ children }) => {
     dispatch({ type: 'LOGIN', payload: { user } });
   };
 
-  const register = async (email, username, password) => {
-    const response = await axios.post('/api/auth/register', { email, username, password });
+  const register = async (firstname, lastname, username, password, email, phonenumber) => {
+    const response = await axios.post('https://localhost:7132/api/authentication', 
+      { firstname, lastname, username, password, email, phonenumber, roles : ["Manager"]});
     const { user } = response.data;
 
     dispatch({ type: 'REGISTER', payload: { user } });

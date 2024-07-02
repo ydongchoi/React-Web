@@ -57,7 +57,7 @@ const JwtRegister = () => {
   const handleFormSubmit = (values) => {
     setLoading(true);
     try {
-      register(values.email, values.username, values.password);
+      register(values.firstname, values.lastname, values.username, values.password, values.email, values.phonenumber);
       navigate('/');
       setLoading(false);
     } catch (e) {
@@ -108,11 +108,11 @@ const JwtRegister = () => {
                       fullWidth
                       size="small"
                       type="text"
-                      name="secondname"
-                      label="Secondname"
+                      name="lastname"
+                      label="Lastname"
                       variant="outlined"
                       onBlur={handleBlur}
-                      value={values.secondname}
+                      value={values.lastname}
                       onChange={handleChange}
                       helperText={touched.username && errors.username}
                       error={Boolean(errors.username && touched.username)}
