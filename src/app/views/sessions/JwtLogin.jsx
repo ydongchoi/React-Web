@@ -34,17 +34,17 @@ const JWTRoot = styled(JustifyBox)(() => ({
 
 // inital login credentials
 const initialValues = {
-  email: 'jason@ui-lib.com',
+  username: 'faint5',
   password: 'dummyPass',
   remember: true
 };
 
 // form field validation schema
 const validationSchema = Yup.object().shape({
+  username: Yup.string().required('User name is required!'),
   password: Yup.string()
     .min(6, 'Password must be 6 character length')
-    .required('Password is required!'),
-  email: Yup.string().email('Invalid Email address').required('Email is required!')
+    .required('Password is required!')
 });
 
 const JwtLogin = () => {
@@ -57,7 +57,7 @@ const JwtLogin = () => {
   const handleFormSubmit = async (values) => {
     setLoading(true);
     try {
-      await login(values.email, values.password);
+      await login(values.username, values.password);
       navigate('/');
     } catch (e) {
       setLoading(false);
@@ -86,15 +86,15 @@ const JwtLogin = () => {
                     <TextField
                       fullWidth
                       size="small"
-                      type="email"
-                      name="email"
-                      label="Email"
+                      type="username"
+                      name="username"
+                      label="Username"
                       variant="outlined"
                       onBlur={handleBlur}
-                      value={values.email}
+                      value={values.username}
                       onChange={handleChange}
-                      helperText={touched.email && errors.email}
-                      error={Boolean(errors.email && touched.email)}
+                      helperText={touched.username && errors.username}
+                      error={Boolean(errors.username && touched.username)}
                       sx={{ mb: 3 }}
                     />
 
