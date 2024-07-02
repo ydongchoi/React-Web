@@ -16,7 +16,9 @@ const Analytics = Loadable(lazy(() => import('app/views/dashboard/Analytics')));
 const routes = [
   {
     element: (
+      <JwtLogin>
         <MatxLayout />
+      </JwtLogin>
     ),
     children: [
       // dashboard route
@@ -28,11 +30,10 @@ const routes = [
     ]
   },
 
-  // session pages route
-  // { path: '/session/404', element: <NotFound /> },
-  // { path: '/session/signin', element: <JwtLogin /> },
-  // { path: '/session/signup', element: <JwtRegister /> },
-  // { path: '/session/forgot-password', element: <ForgotPassword /> },
+  { path: '/session/404', element: <NotFound /> },
+  { path: '/session/signin', element: <JwtLogin /> },
+  { path: '/session/signup', element: <JwtRegister /> },
+  { path: '/session/forgot-password', element: <ForgotPassword /> },
 
   { path: '/', element: <Navigate to="dashboard/default" /> },
   { path: '*', element: <NotFound /> }
