@@ -1,10 +1,8 @@
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
-import AuthGuard from './auth/AuthGuard';
 import { authRoles } from './auth/authRoles';
 import Loadable from './components/Loadable';
 import MatxLayout from './components/MatxLayout/MatxLayout';
-import KeycloakAuthGuard from './auth/KeycloakAuthGuard';
 
 // session pages
 const NotFound = Loadable(lazy(() => import('app/views/sessions/NotFound')));
@@ -18,9 +16,7 @@ const Analytics = Loadable(lazy(() => import('app/views/dashboard/Analytics')));
 const routes = [
   {
     element: (
-      <KeycloakAuthGuard>
         <MatxLayout />
-      </KeycloakAuthGuard>
     ),
     children: [
       // dashboard route
