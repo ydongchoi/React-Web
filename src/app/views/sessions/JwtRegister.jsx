@@ -56,7 +56,6 @@ const JwtRegister = () => {
 
   const handleFormSubmit = (values) => {
     setLoading(true);
-
     try {
       register(values.email, values.username, values.password);
       navigate('/');
@@ -94,6 +93,36 @@ const JwtRegister = () => {
                       fullWidth
                       size="small"
                       type="text"
+                      name="firstname"
+                      label="Firstname"
+                      variant="outlined"
+                      onBlur={handleBlur}
+                      value={values.firstname}
+                      onChange={handleChange}
+                      helperText={touched.username && errors.username}
+                      error={Boolean(errors.username && touched.username)}
+                      sx={{ mb: 3 }}
+                    />
+
+                    <TextField
+                      fullWidth
+                      size="small"
+                      type="text"
+                      name="secondname"
+                      label="Secondname"
+                      variant="outlined"
+                      onBlur={handleBlur}
+                      value={values.secondname}
+                      onChange={handleChange}
+                      helperText={touched.username && errors.username}
+                      error={Boolean(errors.username && touched.username)}
+                      sx={{ mb: 3 }}
+                    />
+
+                    <TextField
+                      fullWidth
+                      size="small"
+                      type="text"
                       name="username"
                       label="Username"
                       variant="outlined"
@@ -103,6 +132,21 @@ const JwtRegister = () => {
                       helperText={touched.username && errors.username}
                       error={Boolean(errors.username && touched.username)}
                       sx={{ mb: 3 }}
+                    />
+
+                    <TextField
+                      fullWidth
+                      size="small"
+                      name="password"
+                      type="password"
+                      label="Password"
+                      variant="outlined"
+                      onBlur={handleBlur}
+                      value={values.password}
+                      onChange={handleChange}
+                      helperText={touched.password && errors.password}
+                      error={Boolean(errors.password && touched.password)}
+                      sx={{ mb: 2 }}
                     />
 
                     <TextField
@@ -119,19 +163,20 @@ const JwtRegister = () => {
                       error={Boolean(errors.email && touched.email)}
                       sx={{ mb: 3 }}
                     />
+
                     <TextField
                       fullWidth
                       size="small"
-                      name="password"
-                      type="password"
-                      label="Password"
+                      type="text"
+                      name="phonenumber"
+                      label="Phonenumber"
                       variant="outlined"
                       onBlur={handleBlur}
-                      value={values.password}
+                      value={values.phonenumber}
                       onChange={handleChange}
-                      helperText={touched.password && errors.password}
-                      error={Boolean(errors.password && touched.password)}
-                      sx={{ mb: 2 }}
+                      helperText={touched.username && errors.username}
+                      error={Boolean(errors.username && touched.username)}
+                      sx={{ mb: 3 }}
                     />
 
                     <FlexBox gap={1} alignItems="center">
@@ -155,7 +200,7 @@ const JwtRegister = () => {
                       variant="contained"
                       sx={{ mb: 2, mt: 3 }}
                     >
-                      Regiser
+                      Register
                     </LoadingButton>
 
                     <Paragraph>
