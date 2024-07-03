@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { authRoles } from './auth/authRoles';
 import Loadable from './components/Loadable';
 import MatxLayout from './components/MatxLayout/MatxLayout';
+import AuthGuard from './auth/AuthGuard';
 
 // session pages
 const NotFound = Loadable(lazy(() => import('app/views/sessions/NotFound')));
@@ -16,9 +17,9 @@ const Analytics = Loadable(lazy(() => import('app/views/dashboard/Analytics')));
 const routes = [
   {
     element: (
-      <JwtLogin>
+      <AuthGuard>
         <MatxLayout />
-      </JwtLogin>
+      </AuthGuard>
     ),
     children: [
       // dashboard route
