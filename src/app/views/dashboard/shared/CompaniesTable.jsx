@@ -58,7 +58,7 @@ const Small = styled('small')(({ bgcolor }) => ({
   boxShadow: '0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24)',
 }));
 
-const TopSellingTable = () => {
+const CompaniesTable = () => {
   const { palette } = useTheme();
   const bgError = palette.error.main;
   const bgPrimary = palette.primary.main;
@@ -133,4 +133,4 @@ const companiesList = [
   }
 ];
 
-export default TopSellingTable;
+export default CompaniesTable;
