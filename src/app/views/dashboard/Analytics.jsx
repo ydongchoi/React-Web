@@ -1,6 +1,6 @@
 import { Grid, styled, useTheme } from '@mui/material';
 import { Fragment } from 'react';
-import TopSellingTable from './shared/TopSellingTable';
+import CompaniesTable from './shared/CompaniesTable';
 
 const ContentBox = styled('div')(({ theme }) => ({
   margin: '30px',
@@ -13,7 +13,7 @@ const Analytics = () => {
       <ContentBox className="analytics">
         <Grid container spacing={3}>
           <Grid item lg={8} md={8} sm={12} xs={12}>
-            <TopSellingTable />
+            <CompaniesTable />
           </Grid>
         </Grid>
       </ContentBox>
