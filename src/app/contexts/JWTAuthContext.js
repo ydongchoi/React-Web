@@ -86,7 +86,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     (async () => {
       try {
-        const { data } = await axios.get('/api/auth/profile');
+        const { data } = await axios.get('https://localhost:7132/api/authentication/profile');
         dispatch({ type: 'INIT', payload: { isAuthenticated: true, user: data.user } });
       } catch (err) {
         console.error(err);
