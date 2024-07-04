@@ -103,17 +103,16 @@ const Layout1Topbar = () => {
           </StyledIconButton>
         </Box>
 
-        {/* <Box display="flex" alignItems="center">
+        <Box display="flex" alignItems="center">
 
           <MatxMenu
             menuButton={
               <UserMenu>
                 <Hidden xsDown>
                   <Span>
-                    Hi <strong>{user.name}</strong>
+                    Hi <strong>Yeongdong</strong>
                   </Span>
                 </Hidden>
-                <Avatar src={user.avatar} sx={{ cursor: 'pointer' }} />
               </UserMenu>
             }
           >
@@ -141,7 +140,7 @@ const Layout1Topbar = () => {
               <Span> Logout </Span>
             </StyledItem>
           </MatxMenu>
-        </Box> */}
+        </Box>
       </TopbarContainer>
     </TopbarRoot>
   );
