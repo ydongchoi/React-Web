@@ -1,4 +1,8 @@
 # UI with React
+## Description
+This project is a UI project that works with ASP .NET CORE API. You can see my asp .net core api project below the link.
+
+Link : https://github.com/ydongchoi/ASP-.NET-CORE-API
 
 ## ScreenShots
 ### Login
