@@ -16,15 +16,15 @@ const initialState = {
 //   return decodedToken.exp > currentTime;
 // };
 
-// const setSession = (accessToken) => {
-//   if (accessToken) {
-//     localStorage.setItem('accessToken', accessToken);
-//     axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
-//   } else {
-//     localStorage.removeItem('accessToken');
-//     delete axios.defaults.headers.common.Authorization;
-//   }
-// };
+const setSession = (accessToken) => {
+  if (accessToken) {
+    localStorage.setItem('accessToken', accessToken);
+    axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
+  } else {
+    localStorage.removeItem('accessToken');
+    delete axios.defaults.headers.common.Authorization;
+  }
+};
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -34,8 +34,8 @@ const reducer = (state, action) => {
     }
 
     case 'LOGIN': {
-      const { user } = action.payload;
-      return { ...state, isAuthenticated: true, user };
+      const token = action.payload;
+      return { ...state, isAuthenticated: true, token };
     }
 
     case 'LOGOUT': {
@@ -66,9 +66,11 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     const response = await axios.post('https://localhost:7132/api/authentication/login', { username, password });
-    const { user } = response.data;
+    const token = response.data;
+    
+    setSession(token.accessToken);
 
-    dispatch({ type: 'LOGIN', payload: { user } });
+    dispatch({ type: 'LOGIN', payload: token });
   };
 
   const register = async (firstname, lastname, username, password, email, phonenumber) => {
