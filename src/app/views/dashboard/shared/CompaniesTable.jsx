@@ -118,7 +118,7 @@ const CompaniesTable = () => {
                 </TableCell>
 
                 <TableCell align="left" colSpan={6} sx={{ px: 0 }}>
-                  {company.fulladress}
+                  {company.fullAddress}
                 </TableCell>
 
                 <TableCell sx={{ px: 0 }} colSpan={3}>
