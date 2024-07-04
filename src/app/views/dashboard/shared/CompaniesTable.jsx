@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import {
   Box,
   Card,
@@ -18,6 +19,7 @@ import {
 } from '@mui/icons-material'
 import { Paragraph } from 'app/components/Typography';
 import AlertDialog from 'app/components/dialog/alertDialog';
+import CompanyService from '../../../api/CompanyService';
 
 const CardHeader = styled(Box)(() => ({
   display: 'flex',
@@ -63,7 +65,22 @@ const CompaniesTable = () => {
   const bgError = palette.error.main;
   const bgPrimary = palette.primary.main;
   const bgSecondary = palette.secondary.main;
-  const [createAlert, setCreateAlert] = React.useState(false);
+  const [createAlert, setCreateAlert] = React.useState(false);  
+  const [companies, setCompanies] = React.useState([]);
+
+  const getCompanies = () => {
+    CompanyService.getCompanies()
+    .then(response => {
+      setCompanies([...response.data]);
+    })
+    .catch(e => {
+      console.log(e);
+    });
+  };
+
+  useEffect(() => {
+    getCompanies();
+  }, []);
 
   const handleChange = () => {
     setCreateAlert((prevState) => {
@@ -94,7 +111,7 @@ const CompaniesTable = () => {
           </TableHead>
 
           <TableBody>
-            {companiesList.map((company, index) => (
+            {companies.map((company, index) => (
               <TableRow key={index} hover>
                 <TableCell align="left" colSpan={4}  sx={{ px: 0 }}>
                   {company.name}
@@ -125,12 +142,12 @@ const CompaniesTable = () => {
   );
 };
 
-const companiesList = [
-  {
-    name: 'Electronics Solutions Ltd',
-    fulladress: "Address	Country 312 Deliver Street, F 234	USA",
-    available: 15
-  }
-];
+// const companiesList = [
+//   {
+//     name: 'Electronics Solutions Ltd',
+//     fulladress: "Address	Country 312 Deliver Street, F 234	USA",
+//     available: 15
+//   }
+// ];
 
 export default CompaniesTable;
